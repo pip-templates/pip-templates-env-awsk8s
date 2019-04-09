@@ -1,0 +1,30 @@
+{
+    "aws_account_id": "XXX",
+    "aws_access_id": "XXX",
+    "aws_access_key": "XXX",
+    "aws_region": "us-east-1",
+
+    "env_name": "test.templates.com",
+    "env_network_cidr": "10.9.0.0/21",
+    "env_ssh_key": "~/.ssh/id_rsa",
+
+    "k8s_version": "1.9.11",
+    "k8s_s3_store": "s3://test.templates.com",
+    "k8s_dns_zone": "test.templates.com",
+    "k8s_master_zones": [ "us-east-1a" ],
+    "k8s_node_zones": [ "us-east-1a" ],
+    "k8s_master_count": 1,
+    "k8s_node_count": 1,
+    "k8s_instance_type": "t2.medium",
+    "k8s_dashboard_enabled": true,
+
+    "k8s_namespace": "templates-devs",
+
+    "mgmt_vpc": "vpc-xxx",
+    "mgmt_network_cidr": "10.0.0.0/24",
+
+    "docker_registry": "https://docker.registry.address",
+    "docker_user": "pip-templates",
+    "docker_pass": "XXX",
+    "docker_email": "piptemplates@gmail.com"
+}
