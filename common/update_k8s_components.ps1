@@ -10,24 +10,18 @@ param
     
 )
 
+$ErrorActionPreference = "Stop"
+
 # Load support functions
 $path = $PSScriptRoot
 if ($path -eq "") { $path = "." }
 . "$($path)/../lib/include.ps1"
+$path = $PSScriptRoot
+if ($path -eq "") { $path = "." }
 
 # Read config and resources
 $config = Read-EnvConfig -Path $ConfigPath
 $resources = Read-EnvResources -Path $ConfigPath
-
-# Set default values for config parameters
-Set-EnvConfigCommonDefaults -Config $config
-
-# Set env_baseline to config
-if ($Baseline -eq ""){
-    $config.env_baseline = "latest"
-} else {
-    $config.env_baseline = $Baseline
-}
 
 # Update configurations
 Build-EnvTemplate -InputPath "$($path)/../templates/configmaps_deployment.yml" -OutputPath "$($path)/../temp/configmaps_deployment.yml" -Params1 $config -Params2 $resources

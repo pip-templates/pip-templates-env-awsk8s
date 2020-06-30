@@ -10,7 +10,7 @@ spec:
   type: NodePort
   ports:
   - port: 8080
-    nodePort: <%=k8s_service_port%>
+    nodePort: <%=microservice_port%>
     protocol: TCP
   selector:
     app: <%=microservice_name%>

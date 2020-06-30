@@ -5,10 +5,23 @@
     "aws_region": "us-east-1",
 
     "env_name": "test.templates.com",
-    "env_network_cidr": "10.9.0.0/21",
-    "env_ssh_key": "~/.ssh/id_rsa",
 
-    "k8s_version": "1.9.11",
+    "vpc": "XXX",
+
+    "mgmt_subnet_cidr": "172.31.100.0/28",
+    "mgmt_subnet_zone": "us-east-1a",
+
+    "mgmt_ssh_allowed_cidr_blocks": [
+        "109.254.10.81/32",
+        "46.219.209.174/32"
+    ],
+    "mgmt_instance_type": "t2.medium",
+    "mgmt_instance_keypair_new": true,
+    "mgmt_instance_keypair_name": "ecommerce",
+    "mgmt_instance_username": "ubuntu",
+    "mgmt_instance_ami": "ami-43a15f3e",
+
+    "k8s_version": "1.17.0",
     "k8s_s3_store": "s3://test.templates.com",
     "k8s_dns_zone": "test.templates.com",
     "k8s_master_zones": [ "us-east-1a" ],
@@ -16,12 +29,11 @@
     "k8s_master_count": 1,
     "k8s_node_count": 1,
     "k8s_instance_type": "t2.medium",
-    "k8s_dashboard_enabled": true,
+    "k8s_ami": "ami-43a15f3e",
+    "k8s_keypair_name": "XXX",
+    "k8s_network_cidr": "10.1.0.0/24",
 
     "k8s_namespace": "templates-devs",
-
-    "mgmt_vpc": "vpc-xxx",
-    "mgmt_network_cidr": "10.0.0.0/24",
 
     "docker_registry": "https://docker.registry.address",
     "docker_user": "pip-templates",

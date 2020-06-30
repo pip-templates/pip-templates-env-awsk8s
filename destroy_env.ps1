@@ -7,10 +7,18 @@ param
     [string] $ConfigPath
 )
 
+$ErrorActionPreference = "Stop"
+
 # Load support functions
 $rootPath = $PSScriptRoot
 if ($rootPath -eq "") { $rootPath = "." }
 . "$($rootPath)/lib/include.ps1"
+$rootPath = $PSScriptRoot
+if ($rootPath -eq "") { $rootPath = "." }
 
-. "$($rootPath)/cloud/unpeer_mgmt.ps1" $ConfigPath
+# Destroy k8s cluster
 . "$($rootPath)/cloud/destroy_k8s.ps1" $ConfigPath
+# Check for error
+if ($LastExitCode -ne 0) {
+    Write-Error "Can't destroy k8s. Watch logs above."
+}

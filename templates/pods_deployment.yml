@@ -19,7 +19,7 @@ spec:
     spec: 
       containers:
       - name: <%=microservice_name%>-pod
-        image: <%=microservice_image%>:<%=env_baseline%>
+        image: <%=microservice_image%>:<%=baseline%>
         ports:
         - containerPort: 8080
         env:

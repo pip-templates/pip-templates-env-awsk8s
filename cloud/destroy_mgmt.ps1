@@ -25,24 +25,17 @@ $env:AWS_ACCESS_KEY_ID = $config.aws_access_id
 $env:AWS_SECRET_ACCESS_KEY = $config.aws_access_key 
 $env:AWS_DEFAULT_REGION = $config.aws_region 
 
-# Set environment variables
-$env:KOPS_STATE_STORE = $config.k8s_s3_store
+# Delete aws mgmt resources
+Write-Host "Destroying CloudFormation stack and EC2 resources of management station..."
+$stackName = "mgmt-$($config.env_name)"
+aws cloudformation delete-stack --region $config.aws_region --stack-name $stackName | Out-Null
+Write-Host "CloudFormation stack and EC2 resources destroyed."
 
-# Delete cluster
-kops delete cluster `
-    --state $config.k8s_s3_store `
-    --name $config.k8s_dns_zone `
-    --yes
-
-# Delete subnet 
-aws ec2 delete-subnet --subnet-id $resources.k8s_subnet
+# Cleanup resources file
+$resources.mgmt_private_ip = $null
+$resources.mgmt_public_ip = $null
+$resources.mgmt_id = $null
+$resources.mgmt_sg_id = $null
 
 # Write k8s resources
-$resources.k8s_type = $null
-$resources.k8s_nodes = @()
-$resources.k8s_address = $null
-$resources.k8s_subnet = $null
-$resources.k8s_keyname = $null
-
-# Save resources
 Write-EnvResources -Path $ConfigPath -Resources $resources
