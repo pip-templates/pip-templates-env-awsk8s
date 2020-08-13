@@ -4,8 +4,6 @@
     "aws_access_key": "XXX",
     "aws_region": "us-east-1",
 
-    "env_name": "test.templates.com",
-
     "vpc": "XXX",
 
     "mgmt_subnet_cidr": "172.31.100.0/28",
