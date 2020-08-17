@@ -7,6 +7,7 @@ This component stores scripts for management aws kubernetes environment.
 
 - Download this repository
 - Copy *src* and *templates* folder to master template
+- Add content of *.ps1.add* files to correspondent files from master template
 - Add content of *config/config.k8s.json.add* to json config file from master template and set the required values
 
 # Config parameters
