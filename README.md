@@ -1,7 +1,7 @@
 # Overview
 
-This is a built-in component to environment [pip-templates-env-master](https://github.com/pip-templates/pip-templates-env-master). 
-This component stores scripts for management aws kubernetes environment.
+This is a built-in module to environment [pip-templates-env-master](https://github.com/pip-templates/pip-templates-env-master). 
+This module stores scripts for management aws kubernetes environment.
 
 # Usage
 

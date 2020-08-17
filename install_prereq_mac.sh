@@ -1,0 +1,13 @@
+#!/bin/sh
+
+# Install ansible 
+brew install ansible
+
+# Install kubectl
+brew install kubectl 
+
+# Install kops
+brew install kops
+
+# Install AWS Cli
+brew install awscli
