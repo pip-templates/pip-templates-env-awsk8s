@@ -12,7 +12,7 @@ This module stores scripts for management aws kubernetes environment.
 
 # Config parameters
 
-Environment config variables description
+Config variables description
 
 | Variable | Default value | Description |
 |----|----|---|
