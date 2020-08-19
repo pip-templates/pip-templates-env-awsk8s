@@ -1,61 +1,18 @@
 # Overview
 
-The Environment Management scripts are used to create, update or delete operating environments.
-The environments support types: cloud. 
-Depending on requirements, they can be used for development, testing and production.
-
-The scriptable environments follow "Infrastructure as a Code" principles and allow to:
-* Have controllable and verifiable environment structure
-* Quickly spin up fully-functional environments in minutes
-* Minimize differences between environments
-* Provide developers with environment to run and test their components integrated into the final system and expand their area of responsibilities
+This is a built-in module to environment [pip-templates-env-master](https://github.com/pip-templates/pip-templates-env-master). 
+This module stores scripts for management aws kubernetes environment.
 
 # Usage
 
-Environment management scripts should be executed from management station. Management station can be created by create_mgmt.ps1 script
+- Download this repository
+- Copy *src* and *templates* folder to master template
+- Add content of *.ps1.add* files to correspondent files from master template
+- Add content of *config/config.k8s.json.add* to json config file from master template and set the required values
 
-`
-./cloud/create_mgmt.ps1 -c <path to config file>
-`
+# Config parameters
 
-This script will create cloud virtual machine and copy environment management project to /home/ubuntu/pip-templates-envmgmt
-
-Before you can run environment management scripts you must install prerequisites. That step is required to be done once:
-
-`
-./install_prereq_<os>.ps1
-`
-
-To create a new environment prepare an environment configuration file (see below) and execute the following script:
-
-`
-./create_env.ps1 -c <path to config file>
-`
-
-As the result, the script will create the environment following your spec and place addresses of the created resources
-into a resource file in the same folder where config file is located.
-
-Deleting environment can be done as:
-
-`
-./destroy_env.ps1 -c <path to config file>
-`
-
-It is possible to execute individual phases of the process by running specific scripts.
-For instance, you can create only kubernetes cluster or database, or install kubernetes components by running scripts from *cloud* folder by executing script with -c parameter.
-
-# Project structure
-| Folder | Description |
-|----|----|
-| Cloud | Scripts related to management cloud environment. |  
-| Config | Config files for scripts. Store *example* configs for each environment, recommendation is not change this files with actual values, set actual values in duplicate config files without *example* in name. Also stores *resources* files, created automaticaly. | 
-| Lib | Scripts with support functions like working with configs, templates etc. | 
-| Temp | Folder for storing automatically created temporary files. | 
-| Templates | Folder for storing templates, such as kubernetes yml files, cloudformation templates, etc. | 
-
-### Cloud environment
-
-* Cloud env config parameters
+Config variables description
 
 | Variable | Default value | Description |
 |----|----|---|
