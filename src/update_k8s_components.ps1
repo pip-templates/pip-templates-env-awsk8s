@@ -5,7 +5,10 @@ param
     [Alias("c", "Path")]
     [Parameter(Mandatory=$true, Position=0)]
     [string] $ConfigPath,
+    [Alias("p")]
     [Parameter(Mandatory=$false, Position=1)]
+    [string] $Prefix
+    [Parameter(Mandatory=$false, Position=2)]
     [string] $Baseline = ""
     
 )
